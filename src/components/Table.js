@@ -3,12 +3,37 @@ import Player from './Player';
 import Dealer from './Dealer';
 import '../styles/table.css';
 
-const Table = () => (
-  <div id="table">
-    <Dealer />
-    <Player />
+class Table extends React.Component {
+  constructor(props) {
+    super(props);
 
-  </div>
-);
+    this.state = {
+      player: {
+        cards: []
+      },
+      dealer: {
+        cards: []
+      }
+    };
+  }
+
+  handleAction(action) {
+    alert(action);
+  }
+
+  init() {
+    alert('hi')
+  }
+
+  render() {
+    return(
+      <div id="table">
+        <Dealer cards={ this.state.dealer.cards } />
+        <Player cards={ this.state.player.cards } onAction={ this.handleAction } init={ this.init } />
+
+      </div>
+    )
+  }
+}
 
 export default Table;
