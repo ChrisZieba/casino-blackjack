@@ -1,0 +1,11 @@
+#table {
+  width: 400px;
+  height: 200px;
+  background-color: gold;
+  border-bottom-left-radius: 210px;
+  border-bottom-right-radius: 210px;
+  border-width: 15px;
+  border-color: black;
+  border-style: solid;
+  position: relative;
+}
