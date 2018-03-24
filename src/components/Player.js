@@ -1,8 +1,8 @@
 import React from 'react';
 
-const init = (fn) => (<button onClick={ () => fn() }>Play</button>);
+const init = ({ init }) => (<button onClick={ () => init() }>Play</button>);
 
-const action = () => (
+const action = (props) => (
   <div id="player">
     <div id="player-cards">cards</div>
     <div id="player-options">
@@ -15,7 +15,7 @@ const action = () => (
 );
 
 const Player = (props) => (
-  props.cards.length ? action() : init(props.init)
+  props.cards.length ? action(props) : init(props)
 );
 
 export default Player;
