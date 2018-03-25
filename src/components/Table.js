@@ -13,7 +13,12 @@ class Table extends React.Component {
 
     this.state = {
       player: {
-        cards: []
+        cards: [],
+        canSplit: null,
+        canDouble: null,
+        canHit: null,
+        hardCount: 0,
+        softCount: 0
       },
       dealer: {
         cards: []
@@ -27,14 +32,25 @@ class Table extends React.Component {
   }
 
   init() {
+    // Player sits down at table
     this.game.deal();
+
+    let player = Object.assign({}, this.state.player);
+    player.cards = this.game.getPlayerCards();
+    player.canSplit = this.game.canPlayerSplit();
+    player.canDouble = this.game.canPlayerDouble();
+    player.canHit = this.game.canPlayerHit();
+    player.hardCount = this.game.getPlayerHardCount();
+    player.softCount = this.game.getPlayerSoftCount();
+
+    this.setState({ player });
   }
 
   render() {
     return(
       <div id="table">
-        <Dealer cards={ this.state.dealer.cards } />
-        <Player cards={ this.state.player.cards } onAction={ this.handleAction } init={ () => this.init() } />
+        <Dealer dealer={ this.state.dealer } />
+        <Player player={ this.state.player } onAction={ this.handleAction } init={ () => this.init() } />
 
       </div>
     )
