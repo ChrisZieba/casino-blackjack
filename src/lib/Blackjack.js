@@ -56,6 +56,26 @@ class Blackjack {
   getDealerCards() {
     return this.dealer.cards();
   }
+
+  canPlayerDouble() {
+
+  }
+
+  canPlayerSplit() {
+
+  }
+
+  canPlayerHit() {
+
+  }
+
+  hasPlayerBust() {
+
+  }
+
+  getPlayerHardCount() {}
+
+  getPlayerSoftCount() {}
 }
 
 export default Blackjack;
