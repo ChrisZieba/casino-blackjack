@@ -73,9 +73,13 @@ class Blackjack {
 
   }
 
-  getPlayerHardCount() {}
+  getPlayerHardCount() {
+    return this.player.hardCount;
+  }
 
-  getPlayerSoftCount() {}
+  getPlayerSoftCount() {
+    return this.player.softCount;
+  }
 }
 
 export default Blackjack;
